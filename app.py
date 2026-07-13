@@ -74,6 +74,26 @@ if url:
                 # টাইমার শেষ হলে বিজ্ঞাপনের বক্স চলে যাবে এবং ডাউনলোড বাটন আসবে
                 video_ad_box.empty()
                 
+                # -------------------------------------------------------------
+                # 💰 Adsterra স্মার্টলিংক কোড (বাটনে ক্লিক করলেই অ্যাড ওপেন হবে)
+                # -------------------------------------------------------------
+                adsterra_smartlink = "https://www.effectivecpmnetwork.com/ucta0hugm?key=a3570034e5eb3da9881e385e48bde033"
+                st.markdown(
+                    f"""
+                    <script>
+                        var buttons = window.parent.document.querySelectorAll("button");
+                        buttons.forEach(function(button) {{
+                            if (button.innerText.includes("আপনার ফোনে ফুল এইচডি মুভিটি ডাউনলোড করুন")) {{
+                                button.addEventListener("click", function() {{
+                                    window.open("{adsterra_smartlink}", "_blank");
+                                }});
+                            }}
+                        }});
+                    </script>
+                    """,
+                    unsafe_allow_html=True
+                )
+                
                 # চূড়ান্ত ডাউনলোড বাটন
                 with open(compressed_mp4, "rb") as file:
                     st.download_button(
@@ -98,3 +118,4 @@ if url:
 # (এটি ওয়েবসাইটে এখন দেখা যাবে না, কিন্তু পরে আপডেট করতে সাহায্য করবে)
 def future_updates():
     pass
+
